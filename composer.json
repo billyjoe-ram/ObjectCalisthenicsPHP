@@ -9,8 +9,7 @@
             "Alura\\Calisthenics\\Tests\\": "tests/"
         }
     },
-    "require": {
-        "ext-ds": "*",
-        "phpunit/phpunit": "^9"
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
     }
 }
