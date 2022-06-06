@@ -10,10 +10,10 @@ use Alura\Calisthenics\Domain\Video\Video;
 class Student
 {
     private Email $email;
-    private DateTimeInterface $bd;
+    private DateTimeInterface $birthDate;
     private WatchedVideos $watchedVideos;
-    private string $fName;
-    private string $lName;
+    private string $firstName;
+    private string $lastName;
     public string $street;
     public string $number;
     public string $province;
@@ -23,9 +23,9 @@ class Student
 
     public function __construct(
         Email $email,
-        DateTimeInterface $bd,
-        string $fName,
-        string $lName,
+        DateTimeInterface $birthDate,
+        string $firstName,
+        string $lastName,
         string $street,
         string $number,
         string $province,
@@ -36,9 +36,9 @@ class Student
     {
         $this->watchedVideos = new WatchedVideos();
         $this->email = $email;
-        $this->bd = $bd;
-        $this->fName = $fName;
-        $this->lName = $lName;
+        $this->birthDate = $birthDate;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->street = $street;
         $this->number = $number;
         $this->province = $province;
@@ -47,9 +47,9 @@ class Student
         $this->country = $country;
     }
 
-    public function getFullName(): string
+    public function getFullastName(): string
     {
-        return "{$this->fName} {$this->lName}";
+        return "{$this->firstName} {$this->lastName}";
     }
 
     public function getEmail(): string
@@ -57,15 +57,15 @@ class Student
         return $this->email;
     }
 
-    public function getBd(): DateTimeInterface
+    public function getBirthDate(): DateTimeInterface
     {
-        return $this->bd;
+        return $this->birthDate;
     }
 
     public function getAge(): int
     {
         $today = new \DateTimeImmutable();
-        $dateInterval = $this->getBd()->diff($today);
+        $dateInterval = $this->getBirthDate()->diff($today);
         
         return $dateInterval->y;
     }
